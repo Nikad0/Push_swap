@@ -3,21 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   add_node.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: nikado <nikado@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:57:33 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/24 22:41:52 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/01 17:58:05 by nikado           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*create_node(int value)
+t_node *create_node(t_node **stack, long long value)
 {
-	t_node	*next_node;
-
-	if (!value)
-		exit_error("no argument given !\n");
+	t_node *next_node;
+	if (!value && value != 0)
+	{
+		free_list(stack);
+		exit_error("Error : argument given is not a number");
+	}
+	if (value < INT_MIN || value > INT_MAX)
+	{
+		free_list(stack);
+		exit_error("Error : argument not in INT range !");
+	}
 	next_node = malloc(sizeof(t_node));
 	if (!next_node)
 		return (0);
