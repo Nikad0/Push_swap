@@ -6,7 +6,7 @@
 /*   By: nikado <nikado@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:32:15 by nikado            #+#    #+#             */
-/*   Updated: 2025/04/01 13:11:50 by nikado           ###   ########.fr       */
+/*   Updated: 2025/04/02 21:20:41 by nikado           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int duplicate_checker(t_node *stack)
         {
             if (tmp->value == compare_node->value)
             {
-                free_list(&stack);
+                // free_list(&stack);
                 return (1);
             }
             compare_node = compare_node->next;

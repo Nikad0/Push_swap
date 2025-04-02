@@ -6,7 +6,7 @@
 /*   By: nikado <nikado@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 22:20:45 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/01 18:48:59 by nikado           ###   ########.fr       */
+/*   Updated: 2025/04/02 21:41:32 by nikado           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,20 @@ ssize_t get_max_value(t_node *stack)
 		tmp = tmp->next;
 	}
 	return (max_value);
+}
+
+ssize_t get_min_value(t_node *stack)
+{
+	t_node *tmp;
+	ssize_t min_value;
+
+	min_value = stack->value;
+	tmp = stack->next;
+	while (tmp != stack)
+	{
+		if (tmp->value < stack->value)
+			min_value = tmp->value;
+		tmp = tmp->next;
+	}
+	return (min_value);
 }

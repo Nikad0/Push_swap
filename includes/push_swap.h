@@ -6,7 +6,7 @@
 /*   By: nikado <nikado@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:27:24 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/01 17:02:51 by nikado           ###   ########.fr       */
+/*   Updated: 2025/04/02 21:41:55 by nikado           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,17 @@ typedef struct s_data
 
 /*utils*/
 void free_list(t_node **stack);
-int exit_error(char *msg);
+void exit_error(char *msg);
+void free_tab(char **tab);
+ssize_t is_sorted(t_node **stack);
 
 /*checker.c*/
-
 int duplicate_checker(t_node *stack);
 
 /*getters.c*/
 ssize_t get_list_size(t_node *stack);
 ssize_t get_max_value(t_node *stack);
+ssize_t get_min_value(t_node *stack);
 
 /*rotate.c*/
 void rotate_a(t_node **stack_a);

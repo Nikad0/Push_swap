@@ -5,7 +5,7 @@ NAME = push_swap
 INCLUDES = -I./includes -I./Libft
 LIBFT = -L./Libft -lft
 
-SRC = core/push_swap.c core/getters.c core/push.c core/reverse.c core/rotate.c core/swap.c core/add_node.c core/push_utils.c core/checker.c core/sort.c\
+SRC = core/push_swap.c core/getters.c core/push.c core/reverse.c core/rotate.c core/swap.c core/add_node.c core/push_utils.c core/checker.c core/sort.c core/utils.c\
 	  
 
 OBJ = $(SRC:.c=.o)

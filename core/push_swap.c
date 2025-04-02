@@ -6,7 +6,7 @@
 /*   By: nikado <nikado@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 22:00:37 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/01 18:49:07 by nikado           ###   ########.fr       */
+/*   Updated: 2025/04/02 21:26:10 by nikado           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,58 +29,61 @@ void print_list(t_node *stack, char a)
 	}
 }
 
-void free_list(t_node **stack)
+void init_stack(t_node **stack_a, char **av)
 {
-	t_node *tmp;
-	t_node *first_node;
+	int i;
+	long long value;
+	t_node *next_node;
 
-	if (*stack == NULL)
-		return;
-	first_node = (*stack);
-	tmp = (*stack);
-	while (tmp->next != first_node)
+	i = 1;
+	next_node = NULL;
+
+	*stack_a = create_node(stack_a, ft_atoll(av[0]));
+	while (av[i])
 	{
-		tmp = tmp->next;
-		free(tmp->prev);
+		value = ft_atoll(av[i++]);
+		if (value < INT_MIN || value > INT_MAX)
+		{
+			free_list(stack_a);
+			exit_error("Error : argument not in INT range !");
+		}
+		if (duplicate_checker(*stack_a))
+		{
+			free_list(stack_a);
+			exit_error("Error : duplicate in arguments given !");
+		}
+		next_node = create_node(stack_a, value);
+		add_back(next_node, stack_a);
 	}
-	free(tmp);
-	(*stack) = NULL;
-}
-
-int exit_error(char *msg)
-{
-
-	write(2, msg, ft_strlen(msg));
-	write(2, "\n", 1);
-	exit(-1);
 }
 
 int main(int ac, char **av)
 {
 	t_node *stack_a;
 	t_node *stack_b;
-	t_node *next_node;
-	int i;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	next_node = NULL;
-	i = 1;
 	if (ac < 2)
-		exit_error("Error : no argument given !");
-	// if (ac == 2)
-	// 	av = ft_split(av[1], ' ');
-	stack_a = create_node(&stack_a, ft_atoll(av[1]));
-	while (++i < ac)
 	{
-		next_node = create_node(&stack_a, ft_atoll(av[i]));
-		add_back(next_node, &stack_a);
+		exit_error("Error : no argument given !");
+		return (-1);
 	}
-	if (duplicate_checker(stack_a))
-		exit_error("Error : duplicate in arguments given !");
+	if (ac == 2)
+	{
+		av = ft_split(av[1], ' ');
+		if (av[0] == NULL)
+		{
+			free_tab(av);
+			exit_error("Error : argument given empty !");
+			return (-1);
+		}
+		init_stack(&stack_a, av);
+		free_tab(av);
+	}
+	if (ac > 2)
+		init_stack(&stack_a, av + 1);
 	sort(&stack_a, &stack_b);
-	print_list(stack_a, 'a');
-	print_list(stack_b, 'b');
 	free_list(&stack_a);
 	free_list(&stack_b);
 	return (0);

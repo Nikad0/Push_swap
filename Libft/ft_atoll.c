@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: nikado <nikado@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:12:15 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/03/24 22:00:35 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/02 19:12:52 by nikado           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ long long	ft_atoll(const char *nptr)
 	i = 0;
 	nb = 0;
 	signe = 1;
+	if (nptr[i] < '0' || nptr[i] > '9')
+		return (2147483649);
 	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || (nptr[i] == ' '))
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
