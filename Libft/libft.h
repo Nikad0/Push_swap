@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikado <nikado@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 09:21:27 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/02 19:10:11 by nikado           ###   ########.fr       */
+/*   Updated: 2025/04/09 18:59:18 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <fcntl.h>
 # include <stdarg.h>
 # include <stdint.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include <stdio.h>
 
 # ifndef FD_SIZE
 #  define FD_SIZE 1024

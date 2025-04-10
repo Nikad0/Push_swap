@@ -3,25 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikado <nikado@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 22:00:37 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/02 21:26:10 by nikado           ###   ########.fr       */
+/*   Updated: 2025/04/10 11:02:58 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_list(t_node *stack, char a)
+void	print_list(t_node *stack, char a)
 {
-	int size_list;
+	int	size_list;
 
 	if (stack == NULL)
-		return;
+		return ;
 	size_list = get_list_size(stack);
 	while (size_list--)
 	{
 		printf("value stack_%c : %lld\n", a, stack->value);
+		printf("index = %d\n", stack->index);
 		printf("prev stack_%c : %p\n", a, stack->prev);
 		printf("adress stack_%c : %p\n", a, stack);
 		printf("next stack_%c : %p\n\n", a, stack->next);
@@ -29,15 +30,14 @@ void print_list(t_node *stack, char a)
 	}
 }
 
-void init_stack(t_node **stack_a, char **av)
+void	init_stack(t_node **stack_a, char **av)
 {
-	int i;
-	long long value;
-	t_node *next_node;
+	int			i;
+	long long	value;
+	t_node		*next_node;
 
 	i = 1;
 	next_node = NULL;
-
 	*stack_a = create_node(stack_a, ft_atoll(av[0]));
 	while (av[i])
 	{
@@ -57,10 +57,10 @@ void init_stack(t_node **stack_a, char **av)
 	}
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_node *stack_a;
-	t_node *stack_b;
+	t_node	*stack_a;
+	t_node	*stack_b;
 
 	stack_a = NULL;
 	stack_b = NULL;

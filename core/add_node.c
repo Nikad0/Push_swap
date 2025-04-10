@@ -3,24 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   add_node.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikado <nikado@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:57:33 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/02 21:21:55 by nikado           ###   ########.fr       */
+/*   Updated: 2025/04/10 08:43:28 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node *create_node(t_node **stack, long long value)
+t_node	*create_node(t_node **stack, long long value)
 {
-	(void)stack;
-	t_node *next_node;
+	t_node	*next_node;
 
+	(void)stack;
 	next_node = malloc(sizeof(t_node));
 	if (!next_node)
 		return (0);
 	next_node->value = value;
+	next_node->index = 0;
 	next_node->next = next_node;
 	next_node->prev = next_node;
 	return (next_node);
@@ -43,6 +44,7 @@ void	add_back(t_node *new_node, t_node **stack)
 		new_node->prev = tmp_node;
 		new_node->next = (*stack);
 		(*stack)->prev = new_node;
+		// new_node->index = get_index(stack);
 	}
 }
 
