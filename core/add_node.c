@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:57:33 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/10 08:43:28 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/15 15:24:36 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_node	*create_node(t_node **stack, long long value)
 	if (!next_node)
 		return (0);
 	next_node->value = value;
-	next_node->index = 0;
+	next_node->index = 1;
 	next_node->next = next_node;
 	next_node->prev = next_node;
 	return (next_node);
@@ -44,7 +44,6 @@ void	add_back(t_node *new_node, t_node **stack)
 		new_node->prev = tmp_node;
 		new_node->next = (*stack);
 		(*stack)->prev = new_node;
-		// new_node->index = get_index(stack);
 	}
 }
 

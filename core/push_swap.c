@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 22:00:37 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/10 11:02:58 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/15 18:50:37 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	print_list(t_node *stack, char a)
 	while (size_list--)
 	{
 		printf("value stack_%c : %lld\n", a, stack->value);
-		printf("index = %d\n", stack->index);
-		printf("prev stack_%c : %p\n", a, stack->prev);
-		printf("adress stack_%c : %p\n", a, stack);
-		printf("next stack_%c : %p\n\n", a, stack->next);
+		printf("index stack_%c = %d\n\n", a, stack->index);
+		// printf("prev stack_%c : %p\n", a, stack->prev);
+		// printf("adress stack_%c : %p\n", a, stack);
+		// printf("next stack_%c : %p\n\n", a, stack->next);
 		stack = stack->next;
 	}
 }

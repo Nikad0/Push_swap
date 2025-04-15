@@ -6,12 +6,11 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 22:20:45 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/10 11:02:45 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/14 20:20:20 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 ssize_t	get_min_index(t_node *stack, ssize_t min_value)
 {
@@ -30,7 +29,7 @@ ssize_t	get_min_index(t_node *stack, ssize_t min_value)
 	return (-1);
 }
 
-ssize_t	get_list_size(t_node *stack)
+int	get_list_size(t_node *stack)
 {
 	t_node	*tmp;
 	ssize_t	size;

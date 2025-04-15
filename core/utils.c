@@ -6,13 +6,11 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:13:53 by nikado            #+#    #+#             */
-/*   Updated: 2025/04/10 08:16:27 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/15 18:50:19 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 void	free_list(t_node **stack)
 {
@@ -63,4 +61,32 @@ void	free_tab(char **tab)
 	while (tab[i])
 		free(tab[i++]);
 	free(tab);
+}
+
+void	indexing(t_node **stack)
+{
+	t_node	*tmp;
+	t_node	*compare;
+	int		index;
+
+	if (!(*stack))
+		return ;
+	tmp = (*stack);
+	while ((*stack))
+	{
+		index = 1;
+		compare = (*stack);
+		while ((*stack))
+		{
+			if (compare->value < tmp->value)
+				index++;
+			compare = compare->next;
+			if (compare == (*stack))
+				break ;
+		}
+		tmp->index = index;
+		tmp = tmp->next;
+		if (tmp == (*stack))
+			break ;
+	}
 }
