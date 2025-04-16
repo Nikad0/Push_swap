@@ -6,13 +6,13 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 22:00:37 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/15 18:50:37 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/16 21:55:19 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_list(t_node *stack, char a)
+void	print_list(t_node *stack, char *a)
 {
 	int	size_list;
 
@@ -21,11 +21,11 @@ void	print_list(t_node *stack, char a)
 	size_list = get_list_size(stack);
 	while (size_list--)
 	{
-		printf("value stack_%c : %lld\n", a, stack->value);
-		printf("index stack_%c = %d\n\n", a, stack->index);
-		// printf("prev stack_%c : %p\n", a, stack->prev);
-		// printf("adress stack_%c : %p\n", a, stack);
-		// printf("next stack_%c : %p\n\n", a, stack->next);
+		printf("value stack_%s : %lld\n", a, stack->value);
+		printf("index stack_%s = %d\n", a, stack->index);
+		printf("prev stack_%s : %p\n", a, stack->prev);
+		printf("adress stack_%s : %p\n", a, stack);
+		printf("next stack_%s : %p\n\n", a, stack->next);
 		stack = stack->next;
 	}
 }
@@ -38,20 +38,10 @@ void	init_stack(t_node **stack_a, char **av)
 
 	i = 1;
 	next_node = NULL;
-	*stack_a = create_node(stack_a, ft_atoll(av[0]));
+	*stack_a = create_node(stack_a, ft_atoll_push(av[0]));
 	while (av[i])
 	{
-		value = ft_atoll(av[i++]);
-		if (value < INT_MIN || value > INT_MAX)
-		{
-			free_list(stack_a);
-			exit_error("Error : argument not in INT range !");
-		}
-		if (duplicate_checker(*stack_a))
-		{
-			free_list(stack_a);
-			exit_error("Error : duplicate in arguments given !");
-		}
+		value = ft_atoll_push(av[i++]);
 		next_node = create_node(stack_a, value);
 		add_back(next_node, stack_a);
 	}
@@ -83,6 +73,7 @@ int	main(int ac, char **av)
 	}
 	if (ac > 2)
 		init_stack(&stack_a, av + 1);
+	checker(&stack_a);
 	sort(&stack_a, &stack_b);
 	free_list(&stack_a);
 	free_list(&stack_b);

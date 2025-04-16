@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:27:24 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/15 20:19:45 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/16 21:48:57 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ typedef struct s_node
 }					t_node;
 
 /*utils*/
-void				print_list(t_node *stack, char a);
+void				print_list(t_node *stack, char *a);
 void				free_list(t_node **stack);
 void				exit_error(char *msg);
 void				free_tab(char **tab);
 ssize_t				is_sorted(t_node **stack);
 int					chunk_size(int list_size);
+long long			ft_atoll_push(const char *nptr);
 
 /*checker.c*/
+void				checker(t_node **stack_a);
 int					duplicate_checker(t_node *stack);
 
 /*getters.c*/
@@ -78,6 +80,7 @@ void				add_front(t_node *prev_node, t_node **stack);
 /*sort*/
 void				indexing(t_node **stack);
 void				sort_3(t_node **stack_a);
+void				sort_5(t_node **stack_a, t_node **stack_b);
 void				to_a(t_node **stack_a, t_node **stack_b);
 void				sort(t_node **stack_a, t_node **stack_b);
 void				sort_algo(t_node **stack_a, t_node **stack_b,

@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 14:13:53 by nikado            #+#    #+#             */
-/*   Updated: 2025/04/15 18:50:19 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/16 16:49:34 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	exit_error(char *msg)
 {
 	write(2, msg, ft_strlen(msg));
 	write(2, "\n", 1);
-	return ;
+	exit(-1);
 }
 
 ssize_t	is_sorted(t_node **stack)
