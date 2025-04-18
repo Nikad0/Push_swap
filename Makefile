@@ -1,11 +1,14 @@
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g3
+CFLAGS = -Wall -Werror -Wextra
 NAME = push_swap
 INCLUDES = -I./includes -I./Libft
 LIBFT = -L./Libft -lft
 
-SRC = core/push_swap.c core/getters.c core/push.c core/reverse.c core/rotate.c core/swap.c core/add_node.c core/push_utils.c core/checker.c core/sort.c core/utils.c core/utils_2.c \
+SRC = core/push_swap.c core/getters.c core/push.c   \
+core/reverse.c core/rotate.c core/swap.c 			\
+core/add_node.c core/push_utils.c core/checker.c    \
+ core/sort.c core/utils.c core/utils_2.c 			\
 	  
 
 OBJ = $(SRC:.c=.o)
@@ -31,4 +34,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re mlx libft
+.PHONY: all clean fclean re

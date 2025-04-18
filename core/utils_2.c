@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 18:27:08 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/18 01:19:20 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 14:05:35 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	chunk_size(int list_size)
 
 long long	ft_atoll_push(const char *nptr)
 {
-	int i;
-	long long nb;
-	int signe;
+	long long	nb;
+	int			i;
+	int			signe;
 
 	i = 0;
 	nb = 0;

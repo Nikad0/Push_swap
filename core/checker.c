@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:32:15 by nikado            #+#    #+#             */
-/*   Updated: 2025/04/18 01:57:27 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 14:02:19 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static int	digit_checker(char **arg)
 	}
 	return (0);
 }
+
 static int	range_checker(char **arg)
 {
 	int	i;
@@ -67,21 +68,31 @@ static int	range_checker(char **arg)
 	return (0);
 }
 
-void	checker(char **arg)
+void	checker(char **arg, char c)
 {
 	if (arg)
 	{
 		if (digit_checker(arg) == -1)
+		{
+			if (c == 's')
+				free_tab(arg);
 			exit_error("Error : Argument is not a number !");
+		}
 		else if (range_checker(arg) == -1)
+		{
+			if (c == 's')
+				free_tab(arg);
 			exit_error("Error : Argument not in int range !");
+		}
 		else if (duplicate_checker(arg) == -1)
+		{
+			if (c == 's')
+				free_tab(arg);
 			exit_error("Error : Duplicate number !");
+		}
 		else
 			init(arg);
 	}
 	else
-	{
 		return ;
-	}
 }
