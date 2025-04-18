@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 18:27:08 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/16 22:17:50 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 01:19:20 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ long long	ft_atoll_push(const char *nptr)
 			signe *= -1;
 		i++;
 	}
-	if (nptr[i] < '0' || nptr[i] > '9')
-		exit_error("Error : argument not a number !");
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		nb = nb * 10 + nptr[i] - 48;

@@ -6,44 +6,82 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:32:15 by nikado            #+#    #+#             */
-/*   Updated: 2025/04/16 17:57:34 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 01:57:27 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	checker(t_node **stack_a)
+static int	duplicate_checker(char **arg)
 {
-	if (duplicate_checker(*stack_a))
-	{
-		free_list(stack_a);
-		exit_error("Error : duplicate in arguments given !");
-	}
-	if ((*stack_a)->value < INT_MIN || (*stack_a)->value > INT_MAX)
-	{
-		free_list(stack_a);
-		exit_error("Error : argument not in INT range !");
-	}
-}
+	int	i;
+	int	j;
 
-int	duplicate_checker(t_node *stack)
-{
-	t_node	*tmp;
-	t_node	*compare_node;
-
-	if (stack == NULL)
-		return (0);
-	tmp = stack;
-	while (tmp != stack->prev)
+	i = 0;
+	while (arg[i])
 	{
-		compare_node = tmp->next;
-		while (compare_node != tmp)
+		j = i + 1;
+		while (arg[j])
 		{
-			if (tmp->value == compare_node->value)
-				return (1);
-			compare_node = compare_node->next;
+			if (ft_atoi(arg[i]) == ft_atoi(arg[j]))
+				return (-1);
+			j++;
 		}
-		tmp = tmp->next;
+		i++;
 	}
 	return (0);
+}
+
+static int	digit_checker(char **arg)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (arg[i])
+	{
+		j = 0;
+		while (arg[i][j])
+		{
+			if (arg[i][j] == '-' || arg[i][j] == '+')
+				j++;
+			if (arg[i][j] < '0' || arg[i][j] > '9')
+				return (-1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+static int	range_checker(char **arg)
+{
+	int	i;
+
+	i = 0;
+	while (arg[i])
+	{
+		if (ft_atoll_push(arg[i]) > INT_MAX
+			|| ft_atoll_push(arg[i++]) < INT_MIN)
+			return (-1);
+	}
+	return (0);
+}
+
+void	checker(char **arg)
+{
+	if (arg)
+	{
+		if (digit_checker(arg) == -1)
+			exit_error("Error : Argument is not a number !");
+		else if (range_checker(arg) == -1)
+			exit_error("Error : Argument not in int range !");
+		else if (duplicate_checker(arg) == -1)
+			exit_error("Error : Duplicate number !");
+		else
+			init(arg);
+	}
+	else
+	{
+		return ;
+	}
 }

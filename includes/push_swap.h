@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:27:24 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/16 21:48:57 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 00:18:50 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ int					chunk_size(int list_size);
 long long			ft_atoll_push(const char *nptr);
 
 /*checker.c*/
-void				checker(t_node **stack_a);
-int					duplicate_checker(t_node *stack);
+void				pars_argument(int ac, char **av);
+void				init(char **av);
+void				checker(char **av);
 
 /*getters.c*/
 int					get_n_chunk(int list_size);
