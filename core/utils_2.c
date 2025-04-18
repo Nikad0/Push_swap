@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 18:27:08 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/18 14:05:35 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 14:41:12 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ long long	ft_atoll_push(const char *nptr)
 	i = 0;
 	nb = 0;
 	signe = 1;
+	if (!nptr || ft_strlen(nptr) > 10)
+		exit_error("Error");
 	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || (nptr[i] == ' '))
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')

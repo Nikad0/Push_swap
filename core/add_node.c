@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:57:33 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/15 15:24:36 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 20:10:12 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_node	*create_node(t_node **stack, long long value)
 	(void)stack;
 	next_node = malloc(sizeof(t_node));
 	if (!next_node)
-		return (0);
+		return (next_node);
 	next_node->value = value;
 	next_node->index = 1;
 	next_node->next = next_node;

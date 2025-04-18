@@ -1,6 +1,6 @@
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 NAME = push_swap
 INCLUDES = -I./includes -I./Libft
 LIBFT = -L./Libft -lft

@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:41:18 by nikado            #+#    #+#             */
-/*   Updated: 2025/04/17 21:31:46 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 20:11:03 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ void	sort(t_node **stack_a, t_node **stack_b)
 	int	list_size;
 
 	if (!stack_a || !stack_b)
-		exit_error("Error : stack error sort_algo()");
+	{
+		free_list(stack_a);
+		free_list(stack_b);
+		exit_error("Error");
+	}
 	indexing(stack_a);
 	list_size = get_list_size(*stack_a);
 	if (is_sorted(stack_a) == 1)
@@ -28,7 +32,7 @@ void	sort(t_node **stack_a, t_node **stack_b)
 			swap_a(*stack_a);
 		else if (list_size == 3)
 			sort_3(stack_a);
-		else if (list_size == 5)
+		else if (list_size <= 5)
 			sort_5(stack_a, stack_b);
 		else if (list_size > 3)
 			sort_algo(stack_a, stack_b, list_size);
@@ -44,25 +48,35 @@ void	sort_3(t_node **stack_a)
 		rotate_a(stack_a);
 	else if ((*stack_a)->next->value == max_value)
 		reverse_rotate_a(stack_a);
-	else if ((*stack_a)->prev->value == max_value)
-		swap_a(*stack_a);
+	if (is_sorted(stack_a) == -1)
+		swap_a((*stack_a));
 }
 
 void	sort_5(t_node **stack_a, t_node **stack_b)
 {
-	ssize_t	max_value;
+	ssize_t	min_value;
+	int		list_size;
 
-	while (is_sorted(stack_a) == -1)
+	list_size = get_list_size(*stack_a);
+	while (list_size > 3)
 	{
-		max_value = get_min_value(*stack_a);
-		if ((*stack_a)->value != max_value)
+		min_value = get_min_value(*stack_a);
+		if ((*stack_a)->prev->value == min_value)
+			reverse_rotate_a(stack_a);
+		else
 			rotate_a(stack_a);
-		else if ((*stack_a)->value == max_value)
+		if ((*stack_a)->value == min_value)
+		{
 			push_b(stack_a, stack_b);
+			list_size--;
+		}
 	}
+	if (is_sorted(stack_a) == -1)
+		sort_3(stack_a);
+	if ((*stack_b)->value < (*stack_b)->next->value)
+		swap_b(*stack_b);
 	while ((*stack_b))
 		push_a(stack_a, stack_b);
-	return ;
 }
 
 void	sort_algo(t_node **stack_a, t_node **stack_b, int list_size)

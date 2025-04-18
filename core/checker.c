@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:32:15 by nikado            #+#    #+#             */
-/*   Updated: 2025/04/18 14:02:19 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/18 15:40:15 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,19 @@ void	checker(char **arg, char c)
 		{
 			if (c == 's')
 				free_tab(arg);
-			exit_error("Error : Argument is not a number !");
+			exit_error("Error");
 		}
 		else if (range_checker(arg) == -1)
 		{
 			if (c == 's')
 				free_tab(arg);
-			exit_error("Error : Argument not in int range !");
+			exit_error("Error");
 		}
 		else if (duplicate_checker(arg) == -1)
 		{
 			if (c == 's')
 				free_tab(arg);
-			exit_error("Error : Duplicate number !");
+			exit_error("Error");
 		}
 		else
 			init(arg);
