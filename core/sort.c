@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:41:18 by nikado            #+#    #+#             */
-/*   Updated: 2025/04/18 20:11:03 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/23 13:01:26 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@ void	sort(t_node **stack_a, t_node **stack_b)
 {
 	int	list_size;
 
-	if (!stack_a || !stack_b)
-	{
-		free_list(stack_a);
-		free_list(stack_b);
-		exit_error("Error");
-	}
 	indexing(stack_a);
 	list_size = get_list_size(*stack_a);
 	if (is_sorted(stack_a) == 1)

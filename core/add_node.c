@@ -6,17 +6,16 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:57:33 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/18 20:10:12 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/23 12:25:38 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*create_node(t_node **stack, long long value)
+t_node	*create_node(long long value)
 {
 	t_node	*next_node;
 
-	(void)stack;
 	next_node = malloc(sizeof(t_node));
 	if (!next_node)
 		return (next_node);

@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:27:24 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/18 19:20:53 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/23 12:56:28 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ long long			ft_atoll_push(const char *nptr);
 
 /*checker.c*/
 void				pars_argument(int ac, char **av);
-void				init(char **av);
+void				init(char **av, char c);
 void				checker(char **av, char c);
 
 /*getters.c*/
@@ -75,7 +75,7 @@ void				push_b_utils(t_node **stack_a, t_node **stack_b);
 void				push_b_utils_2(t_node **stack_a, t_node **stack_b);
 
 /*add_node.c*/
-t_node				*create_node(t_node **stack, long long value);
+t_node				*create_node(long long value);
 void				add_back(t_node *next_node, t_node **stack);
 void				add_front(t_node *prev_node, t_node **stack);
 

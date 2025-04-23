@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:32:15 by nikado            #+#    #+#             */
-/*   Updated: 2025/04/18 15:40:15 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/23 11:37:59 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	checker(char **arg, char c)
 			exit_error("Error");
 		}
 		else
-			init(arg);
+			init(arg, c);
 	}
 	else
 		return ;
