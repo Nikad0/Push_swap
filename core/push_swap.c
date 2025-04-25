@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 22:00:37 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/25 14:52:00 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/25 14:54:52 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ bool	empty(char **arg)
 	while (arg[i])
 	{
 		if (ft_strlen(arg[i]) > 10)
-			{
-				free_tab(arg);
-				exit_error("Error");
-			}
+		{
+			free_tab(arg);
+			exit_error("Error");
+		}
 		i++;
 	}
 	if (i == 0)
