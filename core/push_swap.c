@@ -6,7 +6,7 @@
 /*   By: erbuffet <erbuffet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 22:00:37 by erbuffet          #+#    #+#             */
-/*   Updated: 2025/04/25 14:04:29 by erbuffet         ###   ########lyon.fr   */
+/*   Updated: 2025/04/25 14:52:00 by erbuffet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,14 @@ bool	empty(char **arg)
 
 	i = 0;
 	while (arg[i])
+	{
+		if (ft_strlen(arg[i]) > 10)
+			{
+				free_tab(arg);
+				exit_error("Error");
+			}
 		i++;
+	}
 	if (i == 0)
 		return (true);
 	return (false);
@@ -71,8 +78,6 @@ void	pars_argument(int ac, char **av)
 
 	i = 0;
 	arg = NULL;
-	if (ft_strlen(av[1]) > 10)
-		exit_error("Error");
 	if (ac == 2)
 	{
 		arg = ft_split(av[1], ' ');
